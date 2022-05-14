@@ -1,12 +1,14 @@
-[![](https://jitpack.io/v/JamalMulla/ComposePrefs.svg)](https://jitpack.io/#JamalMulla/ComposePrefs)
+[![](https://jitpack.io/v/JamalMulla/ComposePrefs3.svg)](https://jitpack.io/#JamalMulla/ComposePrefs3)
 
-# ComposePrefs
+# ComposePrefs3
 
-ComposePrefs is a preferences library for Jetpack Compose which makes it easy to implement
+This is the M3 version of ComposePrefs. The M2 version can be found [here](https://github.com/JamalMulla/ComposePrefs/).
+
+
+ComposePrefs3 is a preferences library for Jetpack Compose which makes it easy to implement
 preferences/settings in your Compose Android app. Preferences are created and positioned using an
-intuitive and easy to use API which follows a similar design to the existing Material Composables.
-Currently, the library uses the Composables available from M2 as M3 is not quite stable enough to
-use. ComposePrefs
+intuitive and easy to use API which follows a similar design to the existing Material3 Composables.
+ComposePrefs3
 uses [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) to store the
 actual preference data.
 
@@ -217,7 +219,7 @@ maven { url "https://jitpack.io" }
 and in your module `build.gradle` file add the dependencies
 
 ``` groovy
-implementation "com.github.JamalMulla:ComposePrefs:<version>" // Current is 1.0.2
+implementation "com.github.JamalMulla:ComposePrefs3:<version>" // Current is 1.0.0
 implementation "androidx.datastore:datastore-preferences:1.0.0"
 ```
 
