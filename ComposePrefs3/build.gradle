@@ -39,21 +39,12 @@ android {
 }
 
 dependencies {
-    implementation "androidx.compose.ui:ui:1.2.0-beta01"
-    implementation "androidx.compose.material3:material3:1.0.0-alpha11"
-    implementation "androidx.compose.material3:material3-window-size-class:1.0.0-alpha11"
+    implementation "androidx.compose.ui:ui:1.2.0-beta02"
+    implementation "androidx.compose.material3:material3:1.0.0-alpha12"
+    implementation "androidx.compose.material3:material3-window-size-class:1.0.0-alpha12"
     implementation "androidx.datastore:datastore-preferences:1.0.0"
 }
 
-
-android {
-    publishing {
-        singleVariant('release') {
-            withSourcesJar()
-        }
-        // ...
-    }
-}
 
 afterEvaluate {
     publishing {
@@ -63,7 +54,7 @@ afterEvaluate {
 
                 groupId = 'com.github.jamalmulla'
                 artifactId = 'ComposePrefs3'
-                version = '1.0.0'
+                version = '1.0.1'
             }
         }
     }
