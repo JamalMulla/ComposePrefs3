@@ -54,7 +54,7 @@ afterEvaluate {
 
                 groupId = 'com.github.jamalmulla'
                 artifactId = 'ComposePrefs3'
-                version = '1.0.1'
+                version = '1.0.2'
             }
         }
     }
