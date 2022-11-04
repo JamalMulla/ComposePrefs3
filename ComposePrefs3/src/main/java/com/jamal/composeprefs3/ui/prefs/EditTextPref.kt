@@ -38,6 +38,7 @@ import kotlinx.coroutines.launch
  * @param textColor Text colour of the [title] and [summary]
  * @param enabled If false, this Pref cannot be clicked.
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalComposeUiApi
 @Composable
 fun EditTextPref(
