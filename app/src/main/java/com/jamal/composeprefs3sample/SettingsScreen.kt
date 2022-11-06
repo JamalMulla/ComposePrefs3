@@ -209,6 +209,7 @@ fun SettingsScreen() {
                         )
                     )
                 }
+
                 prefsItem {
                     ListPref(
                         key = "l2",
@@ -216,12 +217,13 @@ fun SettingsScreen() {
                         summary = "Summary is the currently selected item",
                         useSelectedAsSummary = true,
                         entries = mapOf(
-                            "0" to "Entry 1",
-                            "1" to "Entry 2",
+                            "0" to "Entry 2",
+                            "1" to "Entry 1",
                             "2" to "Entry 3",
                             "3" to "Entry 4",
                             "4" to "Entry 5"
-                        )
+                        ),
+                        sortedBy = { o1, o2 -> o1.second.compareTo(o2.second) }
                     )
                 }
             }
@@ -233,13 +235,14 @@ fun SettingsScreen() {
                         title = "MultiSelectListPref",
                         summary = "Pick multiple entries at once",
                         entries = mapOf(
-                            "0" to "Entry 1",
-                            "1" to "Entry 2",
+                            "0" to "Entry 2",
+                            "1" to "Entry 1",
                             "2" to "Entry 3",
                             "3" to "Entry 4",
                             "4" to "Entry 5",
                             "5" to "Entry 6"
-                        )
+                        ),
+                        sortedBy = { o1, o2 -> o1.second.compareTo(o2.second) }
                     )
                 }
 
@@ -274,6 +277,8 @@ fun SettingsScreen() {
         }
     }
 }
+
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

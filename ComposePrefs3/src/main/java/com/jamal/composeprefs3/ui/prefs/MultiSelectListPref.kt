@@ -50,10 +50,11 @@ fun MultiSelectListPref(
     dialogBackgroundColor: Color = MaterialTheme.colorScheme.surface,
     textColor: Color = MaterialTheme.colorScheme.onBackground,
     enabled: Boolean = true,
-    entries: Map<String, String> = mapOf() //TODO: Change to List?
+    entries: Map<String, String> = mapOf(), //TODO: Change to List?
+    sortedBy: Comparator<Pair<String,String>>? = null
 ) {
 
-    val entryList = entries.toList()
+    val entryList = if(sortedBy==null)  entries.toList() else entries.toList().sortedWith(sortedBy)
     var showDialog by rememberSaveable { mutableStateOf(false) }
     val selectionKey = stringSetPreferencesKey(key)
     val scope = rememberCoroutineScope()

@@ -56,9 +56,10 @@ fun ListPref(
     buttonColor: Color = MaterialTheme.colorScheme.primary,
     enabled: Boolean = true,
     entries: Map<String, String> = mapOf(), //TODO: Change to List?
+    sortedBy: Comparator<Pair<String,String>>? = null
 ) {
 
-    val entryList = entries.toList()
+    val entryList = if(sortedBy==null)  entries.toList() else entries.toList().sortedWith(sortedBy)
     var showDialog by rememberSaveable { mutableStateOf(false) }
     val selectionKey = stringPreferencesKey(key)
     val scope = rememberCoroutineScope()
