@@ -37,6 +37,7 @@ import kotlinx.coroutines.launch
  * @param dialogBackgroundColor Color of the dropdown menu
  * @param textColor Text colour of the [title] and [summary]
  * @param enabled If false, this Pref cannot be clicked.
+ * @param leadingIcon Icon which is positioned at the start of the Pref
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalComposeUiApi
@@ -54,6 +55,7 @@ fun EditTextPref(
     dialogBackgroundColor: Color = MaterialTheme.colorScheme.background,
     textColor: Color = MaterialTheme.colorScheme.onBackground,
     enabled: Boolean = true,
+    leadingIcon: @Composable (() -> Unit)? = null
 ) {
 
     var showDialog by rememberSaveable { mutableStateOf(false) }
@@ -107,6 +109,7 @@ fun EditTextPref(
         summary = summary,
         textColor = textColor,
         enabled = enabled,
+        leadingIcon = leadingIcon,
         onClick = { if (enabled) showDialog = !showDialog },
     )
 
