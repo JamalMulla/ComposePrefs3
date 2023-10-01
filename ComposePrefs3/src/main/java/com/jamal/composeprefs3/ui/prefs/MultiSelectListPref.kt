@@ -35,6 +35,7 @@ import java.lang.Exception
  * @param dialogBackgroundColor Background color of the Dialog
  * @param textColor Text colour of the [title] and [summary]
  * @param enabled If false, this Pref cannot be clicked and the Dialog cannot be shown.
+ * @param leadingIcon Icon which is positioned at the start of the Pref
  * @param entries Map of keys to values for entries that should be shown in the Dialog.
  */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -50,6 +51,7 @@ fun MultiSelectListPref(
     dialogBackgroundColor: Color = MaterialTheme.colorScheme.surface,
     textColor: Color = MaterialTheme.colorScheme.onBackground,
     enabled: Boolean = true,
+    leadingIcon: @Composable (() -> Unit)? = null,
     entries: Map<String, String> = mapOf() //TODO: Change to List?
 ) {
 
@@ -89,6 +91,7 @@ fun MultiSelectListPref(
         title = title,
         modifier = modifier,
         summary = summary,
+        leadingIcon = leadingIcon,
         textColor = textColor,
         enabled = true,
         onClick = { if (enabled) showDialog = !showDialog },
