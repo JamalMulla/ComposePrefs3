@@ -37,7 +37,6 @@ import java.lang.Exception
  * @param enabled If false, this Pref cannot be clicked and the Dialog cannot be shown.
  * @param entries Map of keys to values for entries that should be shown in the Dialog.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalComposeUiApi
 @Composable
 fun MultiSelectListPref(

@@ -38,7 +38,6 @@ import java.lang.Exception
  * @param enabled If false, this Pref cannot be clicked and the Dialog cannot be shown.
  * @param entries Map of keys to values for entries that should be shown in the Dialog.
  */
-@OptIn(ExperimentalMaterial3Api::class)
 @ExperimentalComposeUiApi
 @Composable
 fun ListPref(
@@ -100,7 +99,7 @@ fun ListPref(
         AlertDialog(
             onDismissRequest = { showDialog = false },
             text = {
-                Column() {
+                Column {
                     Text(modifier = Modifier.padding(vertical = 16.dp), text = title, style = MaterialTheme.typography.titleLarge)
                     LazyColumn {
                         items(entryList) { current ->
