@@ -33,6 +33,7 @@ import java.lang.Exception
  * @param dropdownBackgroundColor Color of the dropdown menu
  * @param textColor Text colour of the [title] and [summary]
  * @param enabled If false, this Pref cannot be clicked and the dropdown menu will not show.
+ * @param leadingIcon Icon which is positioned at the start of the Pref
  * @param entries Map of keys to values for entries that should be shown in the DropDown.
  */
 @Composable
@@ -47,6 +48,7 @@ fun DropDownPref(
     dropdownBackgroundColor: Color? = null,
     textColor: Color = MaterialTheme.colorScheme.onBackground,
     enabled: Boolean = true,
+    leadingIcon: @Composable (() -> Unit)? = null,
     entries: Map<String, String> = mapOf()
 ) {
 
@@ -83,6 +85,7 @@ fun DropDownPref(
                 useSelectedAsSummary && value == null -> "Not Set"
                 else -> summary
             },
+            leadingIcon = leadingIcon,
             textColor = textColor,
             enabled = enabled,
             onClick = {

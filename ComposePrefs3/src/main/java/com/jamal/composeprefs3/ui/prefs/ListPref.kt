@@ -36,6 +36,7 @@ import java.lang.Exception
  * @param selectionColor Colour of the radiobutton of the selected item
  * @param buttonColor Colour of the cancel button
  * @param enabled If false, this Pref cannot be clicked and the Dialog cannot be shown.
+ * @param leadingIcon Icon which is positioned at the start of the Pref
  * @param entries Map of keys to values for entries that should be shown in the Dialog.
  */
 @ExperimentalComposeUiApi
@@ -54,6 +55,7 @@ fun ListPref(
     selectionColor: Color = MaterialTheme.colorScheme.primary,
     buttonColor: Color = MaterialTheme.colorScheme.primary,
     enabled: Boolean = true,
+    leadingIcon: @Composable (() -> Unit)? = null,
     entries: Map<String, String> = mapOf(), //TODO: Change to List?
 ) {
 
@@ -89,6 +91,7 @@ fun ListPref(
             useSelectedAsSummary && selected == null -> "Not Set"
             else -> summary
         },
+        leadingIcon = leadingIcon,
         modifier = modifier,
         textColor = textColor,
         enabled = true,
