@@ -6,7 +6,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material3.*
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -16,14 +21,25 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jamal.composeprefs3.ui.GroupHeader
 import com.jamal.composeprefs3.ui.PrefsScreen
-import com.jamal.composeprefs3.ui.prefs.*
+import com.jamal.composeprefs3.ui.prefs.CheckBoxPref
+import com.jamal.composeprefs3.ui.prefs.DropDownPref
+import com.jamal.composeprefs3.ui.prefs.EditTextPref
+import com.jamal.composeprefs3.ui.prefs.ListPref
+import com.jamal.composeprefs3.ui.prefs.MultiSelectListPref
+import com.jamal.composeprefs3.ui.prefs.SliderPref
+import com.jamal.composeprefs3.ui.prefs.SwitchPref
+import com.jamal.composeprefs3.ui.prefs.TextPref
 
 @ExperimentalComposeUiApi
 @Composable
 fun SettingsScreen() {
     Scaffold(topBar = { SettingsTopBar() }) { padding ->
 
-        PrefsScreen(dataStore = LocalContext.current.dataStore, modifier = Modifier.padding(padding), contentPadding = PaddingValues(5.dp)) {
+        PrefsScreen(
+            dataStore = LocalContext.current.dataStore,
+            modifier = Modifier.padding(padding),
+            contentPadding = PaddingValues(5.dp)
+        ) {
 
             prefsGroup({
                 GroupHeader(
@@ -133,6 +149,14 @@ fun SettingsScreen() {
                         dialogBackgroundColor = MaterialTheme.colorScheme.secondary
                     )
                 }
+                prefsItem {
+                    EditTextPref(
+                        key = "et6",
+                        title = "EditText example",
+                        summary = "But it has a leading icon",
+                        leadingIcon = { Icon(Icons.Filled.Info, "Info") }
+                    )
+                }
             }
 
             prefsGroup("SliderPref") {
@@ -160,7 +184,8 @@ fun SettingsScreen() {
                     DropDownPref(
                         key = "dd1",
                         title = "Dropdown example",
-                        summary = "With custom summary",
+                        summary = "With custom summary and leading icon",
+                        leadingIcon = { Icon(Icons.Filled.Info, "Info") },
                         entries = mapOf(
                             "0" to "Entry 1",
                             "1" to "Entry 2",
@@ -188,6 +213,7 @@ fun SettingsScreen() {
                         key = "l1",
                         title = "ListPref example",
                         summary = "Opens up a dialog of options",
+                        leadingIcon = { Icon(Icons.Filled.Info, "Info") },
                         entries = mapOf(
                             "0" to "Entry 1",
                             "1" to "Entry 2",
@@ -233,6 +259,7 @@ fun SettingsScreen() {
                         key = "msl1",
                         title = "MultiSelectListPref",
                         summary = "Pick multiple entries at once",
+                        leadingIcon = { Icon(Icons.Filled.Info, "Info") },
                         entries = mapOf(
                             "0" to "Entry 1",
                             "1" to "Entry 2",
