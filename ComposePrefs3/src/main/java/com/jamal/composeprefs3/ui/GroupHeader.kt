@@ -21,7 +21,7 @@ fun GroupHeader(
     Box(
         Modifier
             .padding(
-                start = StartPadding,
+                start = startPadding,
             )
             .fillMaxWidth(),
         contentAlignment = Alignment.CenterStart
@@ -29,12 +29,12 @@ fun GroupHeader(
         Text(
             title,
             color = color,
-            fontSize = LocalTextStyle.current.fontSize.times(FontSizeMultiplier),
+            fontSize = LocalTextStyle.current.fontSize.times(FONT_SIZE_MULTIPLIER),
             fontWeight = FontWeight.SemiBold
         )
     }
 }
 
 
-private val StartPadding = 16.dp
-private const val FontSizeMultiplier = 0.85f
+private val startPadding = 16.dp
+private const val FONT_SIZE_MULTIPLIER = 0.85f

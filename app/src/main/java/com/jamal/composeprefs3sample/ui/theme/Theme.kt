@@ -7,7 +7,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-private val DarkColorPalette = darkColorScheme(
+private val darkColorPalette = darkColorScheme(
     primary = Purple200,
     primaryContainer = Purple700,
     secondary = Teal200,
@@ -19,7 +19,7 @@ private val DarkColorPalette = darkColorScheme(
     onSurface = Color.White,
 )
 
-private val LightColorPalette = lightColorScheme(
+private val lightColorPalette = lightColorScheme(
     primary = Purple500,
     primaryContainer = Purple700,
     secondary = Teal200,
@@ -37,9 +37,9 @@ fun ComposePrefsSampleTheme(
     content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) {
-        DarkColorPalette
+        darkColorPalette
     } else {
-        LightColorPalette
+        lightColorPalette
     }
 
     MaterialTheme(

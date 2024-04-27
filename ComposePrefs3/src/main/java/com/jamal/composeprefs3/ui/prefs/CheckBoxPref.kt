@@ -25,7 +25,6 @@ import java.lang.Exception
  * @param leadingIcon Icon which is positioned at the start of the Pref
  */
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CheckBoxPref(
     key: String,

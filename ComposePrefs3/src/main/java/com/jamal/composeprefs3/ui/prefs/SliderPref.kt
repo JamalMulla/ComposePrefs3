@@ -56,7 +56,7 @@ fun SliderPref(
     val datastore = LocalPrefsDataStore.current
     val prefs by remember { datastore.data }.collectAsState(initial = null)
 
-    var value by remember { mutableStateOf(defaultValue) }
+    var value by remember { mutableFloatStateOf(defaultValue) }
 
     LaunchedEffect(Unit) {
         prefs?.get(selectionKey)?.also { value = it }

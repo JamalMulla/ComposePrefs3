@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun Divider(
     modifier: Modifier = Modifier,
-    color: Color = MaterialTheme.colorScheme.onSurface.copy(alpha = DividerAlpha),
+    color: Color = MaterialTheme.colorScheme.onSurface.copy(alpha = DIVIDER_ALPHA),
     thickness: Dp = 1.dp,
     indent: Dp = 0.dp
 ) {
@@ -31,4 +31,4 @@ fun Divider(
     )
 }
 
-private const val DividerAlpha = 0.12f
+private const val DIVIDER_ALPHA = 0.12f
