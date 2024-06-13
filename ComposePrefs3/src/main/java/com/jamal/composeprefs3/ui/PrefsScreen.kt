@@ -1,6 +1,7 @@
 package com.jamal.composeprefs3.ui
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -19,6 +20,7 @@ lateinit var LocalPrefsDataStore: ProvidableCompositionLocal<DataStore<Preferenc
  *
  * @param dataStore DataStore which will be used to save all the preferences
  * @param modifier Modifier applied to the [LazyColumn] holding the list of Prefs
+ * @param contentPadding PaddingValues applied to the [LazyColumn] holding the list of Prefs
  *
  */
 @Composable
@@ -27,6 +29,7 @@ fun PrefsScreen(
     modifier: Modifier = Modifier,
     dividerThickness: Dp = 1.dp, // 0 for no divider
     dividerIndent: Dp = 0.dp, // indents on both sides
+    contentPadding: PaddingValues = PaddingValues(0.dp),
     content: PrefsScope.() -> Unit
 ) {
     LocalPrefsDataStore = staticCompositionLocalOf { dataStore }
@@ -36,7 +39,7 @@ fun PrefsScreen(
     CompositionLocalProvider(LocalPrefsDataStore provides dataStore) {
         Column {
             Spacer(modifier = Modifier.height(12.dp))
-            LazyColumn(modifier = modifier.fillMaxSize()) {
+            LazyColumn(modifier = modifier.fillMaxSize(), contentPadding = contentPadding) {
 
                 items(prefsScope.prefsItems.size) { index ->
                     prefsScope.getPrefsItem(index)()
