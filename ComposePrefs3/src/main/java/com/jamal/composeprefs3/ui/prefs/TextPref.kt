@@ -35,7 +35,7 @@ fun TextPref(
     minimalHeight: Boolean = false,
     onClick: () -> Unit = {},
     textColor: Color = MaterialTheme.colorScheme.onBackground,
-    enabled: Boolean = false,
+    enabled: Boolean = true,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingContent: @Composable (() -> Unit)? = null
 ) {

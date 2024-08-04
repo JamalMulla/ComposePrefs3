@@ -29,6 +29,8 @@ fun SwitchPref(
     title: String,
     modifier: Modifier = Modifier,
     summary: String? = null,
+    summaryOn: String? = null,
+    summaryOff: String? = null,
     defaultChecked: Boolean = false,  // only used if it doesn't already exist in the datastore
     onCheckedChange: ((Boolean) -> Unit)? = null,
     textColor: Color = MaterialTheme.colorScheme.onBackground,
@@ -63,7 +65,7 @@ fun SwitchPref(
         title = title,
         modifier = modifier,
         textColor = textColor,
-        summary = summary,
+        summary = if (summaryOn != null && summaryOff != null) { if (checked) summaryOn else summaryOff } else summary,
         darkenOnDisable = true,
         leadingIcon = leadingIcon,
         enabled = enabled,
